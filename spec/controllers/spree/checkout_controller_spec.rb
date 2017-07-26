@@ -45,7 +45,7 @@ RSpec.describe Spree::CheckoutController, type: :controller do
   private
 
   def put_address_to_order(params)
-    spree_put :update, state: 'address', order: params
+    spree_put :update, params: { state: 'address', order: params }
     @order.reload
   end
 end
