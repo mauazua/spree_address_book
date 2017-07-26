@@ -1,4 +1,5 @@
 require 'spree_core'
+require 'spree_extension'
 
 module Spree
   module AddressBook

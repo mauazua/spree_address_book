@@ -1,10 +1,4 @@
-migration_superclass = if ActiveRecord::VERSION::MAJOR >= 5
-  ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"]
-else
-  ActiveRecord::Migration
-end
-
-class AddMissingIndexes < migration_superclass
+class AddMissingIndexes < SpreeExtension::Migration[4.2]
   def self.up
     add_index addresses_table_name, :user_id
     add_index addresses_table_name, :deleted_at

@@ -1,10 +1,4 @@
-migration_superclass = if ActiveRecord::VERSION::MAJOR >= 5
-  ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"]
-else
-  ActiveRecord::Migration
-end
-
-class AddUserIdAndDeletedAtToAddresses < migration_superclass
+class AddUserIdAndDeletedAtToAddresses < SpreeExtension::Migration[4.2]
   def self.up
     change_table addresses_table_name do |t|
       t.integer :user_id
